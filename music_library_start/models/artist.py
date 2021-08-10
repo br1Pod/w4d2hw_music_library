@@ -1,3 +1,5 @@
 class Artist:
-    def __init__(self):
-        pass
+    def __init__(self, name, id = None):
+        self.name = name
+        self.id = id
+        
