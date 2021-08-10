@@ -10,8 +10,8 @@ artist_repository.delete_all()
 
 
 
-# for album in album_repository.select_all():
-    # print(album.__dict__)
+for album in album_repository.select_all():
+    print(album.__dict__)
 
 
 
