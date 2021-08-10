@@ -3,8 +3,10 @@ from db.run_sql import run_sql
 from models.artist import Artist
 from models.album import Album
 
+import repositories.album_repository as album_repository
+
 def save(artist):
-    sql = f"INSERT INTO artists (name) VALUES %s RETURNING *"
+    sql = "INSERT INTO artists (name) VALUES (%s) RETURNING *"
     values = [artist.name]
     results = run_sql(sql, values)
     id = results[0]['id']
@@ -16,9 +18,7 @@ def delete_all():
     run_sql(sql)
 
 def select(id):
-    sql = "DELETER FROM artists WHERE id = %s"
-    values = [id]
-    run_sql(sql, values)
+    pass
 
 def albums(artist):
     pass
@@ -28,7 +28,9 @@ def select_all():
     pass
 
 def delete(id):
-    pass
+    sql = "DELETE FROM artists WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
 
 def update(artist):
     pass
