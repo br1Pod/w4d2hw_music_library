@@ -1,4 +1,5 @@
 import pdb
+from db.run_sql import run_sql
 from models.artist import Artist
 from models.album import Album
 
@@ -8,7 +9,7 @@ import repositories.album_repository as album_repository
 album_repository.delete_all()
 artist_repository.delete_all()
 
-# pdb.set_trace()
+pdb.set_trace()
 
 artist1 = Artist("The Cure")
 artist_repository.save(artist1)
@@ -37,8 +38,9 @@ album7 = Album("Daydream Nation", "New Wave", "Sonic Youth")
 album_repository.save(album7)
 
 
-artist_repository.select_all()
-album_repository.select_all()
+artist_repository.select()
+album_repository.select()
+
 
 for album in album_repository.select_all():
     print(album.__dict__)
